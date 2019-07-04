@@ -12,7 +12,7 @@
 ### How to Load the App
 `@rehooks/network-status` package has some [issue](https://reactjs.org/warnings/invalid-hook-call-warning.html#duplicate-react) with dependency.
 ```
-git clone https://github.com/oliver-gomes/react-movie.git
+git clone https://api.glitch.com/git/anton-karlovskiy-react-movie
 npm install
 cd /node_modules/@rehooks/network-status
 npm link ../../react
