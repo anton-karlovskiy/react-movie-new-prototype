@@ -1,5 +1,5 @@
 # React Movie rmdb
-[Link to App](http://phobic-heat.surge.sh/)
+[Link to App](https://anton-karlovskiy-react-movie.glitch.me)
 ![project image](https://oliver-gomes.github.io/images/github%20images/react-movie.png)
 
 
