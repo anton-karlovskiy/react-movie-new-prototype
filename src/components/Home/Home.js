@@ -24,6 +24,7 @@ const Home = () => {
     setLoading(true);
     const endpoint = `${API_URL}movie/popular?api_key=${API_KEY}&language=en-US&page=1`;
     fetchItems(endpoint);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const searchItems = searchTerm => {

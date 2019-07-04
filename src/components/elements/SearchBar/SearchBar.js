@@ -9,6 +9,7 @@ const SearchBar = ({ callback }) => {
       const timeout = setTimeout(() => { callback(value); }, 500);
       return () => clearTimeout(timeout);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [value]);
 
   const doSearch = event => {

@@ -17,6 +17,18 @@ const Movie = ({ match, location }) => {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
+    const fetchMovieData = endpoint => {
+      fetch(endpoint)
+        .then(result => result.json())
+        .then(result => {
+          if (result.status_code) {
+            setLoading(false);
+          } else {
+            setMovie(result);
+          }
+        })
+        .catch(error => console.error("Error: ", error));
+    };
     const movieId = match.params.movieId;
     if (localStorage.getItem(`${movieId}`)) {
       const state = JSON.parse(
@@ -33,6 +45,7 @@ const Movie = ({ match, location }) => {
       const endpoint = `${API_URL}movie/${movieId}?api_key=${API_KEY}&language=en-US`;
       fetchMovieData(endpoint);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
@@ -50,6 +63,7 @@ const Movie = ({ match, location }) => {
           setLoading(false);
         });
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [movie]);
 
   useEffect(() => {
@@ -60,24 +74,12 @@ const Movie = ({ match, location }) => {
         JSON.stringify({movie, actors, directors, loading})
       );
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [actors, directors]);
 
   const checkInLocalStorage = movieId => {
     const movieInLocalStorage = localStorage.getItem(`${movieId}`);
     return movieInLocalStorage ? true : false; 
-  };
-
-  const fetchMovieData = endpoint => {
-    fetch(endpoint)
-      .then(result => result.json())
-      .then(result => {
-        if (result.status_code) {
-          setLoading(false);
-        } else {
-          setMovie(result);
-        }
-      })
-      .catch(error => console.error("Error: ", error));
   };
 
   return (

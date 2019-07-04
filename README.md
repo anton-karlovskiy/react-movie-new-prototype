@@ -10,10 +10,14 @@
 * [How to Use the App](#how-to-use-the-app)
 
 ### How to Load the App
+`@rehooks/network-status` package has some [issue](https://reactjs.org/warnings/invalid-hook-call-warning.html#duplicate-react) with dependency.
 ```
 git clone https://github.com/oliver-gomes/react-movie.git
 npm install
+cd /node_modules/@rehooks/network-status
+npm link ../../react
 npm start
+npm run build
 ```
 ## About
 Modern fast movie database web app with React using The Movie DB API. All the new popular movies are populated along with search bar for your own movie search. Clicking on specific movies bring you all data about the movie including actors, directors, time, budget, revenue, rating and many more.
