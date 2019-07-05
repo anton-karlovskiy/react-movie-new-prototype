@@ -31,7 +31,7 @@ Modern fast movie database web app with React using The Movie DB API. All the ne
 
 ## Glitch Source
 * [Link to Glitch App](https://anton-karlovskiy-react-movie.glitch.me)
-* [Link to Project on Glitch](https://glitch.com/~anton-karlovskiy-react-movie.glitch.me)
+* [Link to Project on Glitch](https://glitch.com/~anton-karlovskiy-react-movie)
 
 # Hope You Enjoy the App !
 
