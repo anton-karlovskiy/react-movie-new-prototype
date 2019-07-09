@@ -1,7 +1,7 @@
 import React from "react";
 import FontAwesome from "react-fontawesome";
 
-import { calcTime, convertMoney } from "../../../helpers";
+import { calcTime, convertMoney } from "../../../utils/helpers";
 import "./MovieInfoBar.css";
 
 const MovieInfoBar = props => {

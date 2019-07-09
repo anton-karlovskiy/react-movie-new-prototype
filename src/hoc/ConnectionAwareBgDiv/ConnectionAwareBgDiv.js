@@ -1,12 +1,12 @@
 
 import React from 'react';
-import useNetworkStatus from '@rehooks/network-status';
 
-import { getBackdropUrl } from '../../helpers';
+import useEffectiveConnectionType from '../../utils/hooks';
+import { getBackdropUrl } from '../../utils/helpers';
 
 const ConnectionAwareBgDiv = ({ children, backdropPath, ...rest }) => {
-  const connection = useNetworkStatus();
-  const bgUrl = getBackdropUrl(connection.effectiveType, backdropPath);
+  const connectionEffectiveType = useEffectiveConnectionType();
+  const bgUrl = getBackdropUrl(connectionEffectiveType, backdropPath);
   return (
     <div
       {...rest}

@@ -1,5 +1,5 @@
 
-import { IMAGE_BASE_URL, BACKDROP_SIZES, POSTER_SIZES } from './config';
+import { IMAGE_BASE_URL, BACKDROP_SIZES, POSTER_SIZES } from '../config';
 
 // Convert time to hours and minutes
 export const calcTime = (time) => {

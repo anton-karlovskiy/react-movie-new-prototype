@@ -1,12 +1,12 @@
 
 import React from 'react';
-import useNetworkStatus from '@rehooks/network-status';
 
-import { getPosterUrl } from '../../../helpers';
+import useEffectiveConnectionType from '../../../utils/hooks';
+import { getPosterUrl } from '../../../utils/helpers';
 
 const ConnectionAwareImage = ({ path, alt, ...rest }) => {
-  const connection = useNetworkStatus();
-  const imgUrl = path && connection ? getPosterUrl(connection.effectiveType, path) : './images/no_image.jpg';
+  const connectionEffectiveType = useEffectiveConnectionType();
+  const imgUrl = path && connectionEffectiveType ? getPosterUrl(connectionEffectiveType, path) : './images/no_image.jpg';
   return (
     <img src={imgUrl} alt={alt} {...rest} />
   );
