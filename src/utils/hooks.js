@@ -13,9 +13,9 @@ const useEffectiveConnectionType = () => {
     setConnectionEffectiveType(getEffectiveConnectionType());
   };
   useEffect(() => {
-    navigator.connection.addEventListener('change', updateECTStatus);
+    navigator.connection && navigator.connection.addEventListener('change', updateECTStatus);
     return () => {
-      navigator.connection.removeEventListener('change', updateECTStatus);
+      navigator.connection && navigator.connection.removeEventListener('change', updateECTStatus);
     };
   });
 
