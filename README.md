@@ -14,8 +14,6 @@
 ```
 git clone https://api.glitch.com/git/anton-karlovskiy-react-movie
 npm install
-cd /node_modules/@rehooks/network-status
-npm link ../../react
 npm start
 npm run build
 ```
