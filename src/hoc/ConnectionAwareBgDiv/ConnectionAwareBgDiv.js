@@ -2,11 +2,38 @@
 import React from 'react';
 
 import useEffectiveConnectionType from '../../utils/hooks';
-import { getBackdropUrl } from '../../utils/helpers';
+import { IMAGE_BASE_URL, BACKDROP_SIZES } from '../../config';
 
 const ConnectionAwareBgDiv = ({ children, backdropPath, ...rest }) => {
   const connectionEffectiveType = useEffectiveConnectionType();
-  const bgUrl = getBackdropUrl(connectionEffectiveType, backdropPath);
+
+  let backdropSize;
+  switch(connectionEffectiveType) {
+    // case 'offline':
+    //   break;
+    case 'slow-2g':
+      backdropSize = 'w300';
+      break;
+    case '2g':
+      backdropSize = 'w300';
+      break;
+    case '3g':
+      backdropSize = 'w780';
+      break;
+    case '4g':
+      backdropSize = 'w1280';
+      break;
+    default:
+      backdropSize = 'w1280';
+      break;
+  }
+
+  if (!BACKDROP_SIZES.has(backdropSize)) {
+    throw new Error('the backdrop size is not supported');
+  }
+  
+  const bgUrl = `${IMAGE_BASE_URL}${backdropSize}${backdropPath}`;
+
   return (
     <div
       {...rest}
