@@ -1,11 +1,11 @@
 
 import React from 'react';
 
-import useEffectiveConnectionType from '../../utils/hooks';
+import useConnectionEffectiveType from '../../utils/hooks';
 import { IMAGE_BASE_URL, BACKDROP_SIZES } from '../../config';
 
 const ConnectionAwareBgDiv = ({ children, backdropPath, ...rest }) => {
-  const connectionEffectiveType = useEffectiveConnectionType();
+  const connectionEffectiveType = useConnectionEffectiveType();
 
   let backdropSize;
   switch(connectionEffectiveType) {
