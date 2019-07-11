@@ -3,7 +3,13 @@
 import { useState, useEffect } from 'react';
 
 const getConnectionEffectiveType = () => {
-  return navigator.connection ? navigator.connection.effectiveType : null;
+  let connectionType = null;
+  if (navigator.connection && navigator.connection.effectiveType) {
+    connectionType = navigator.onLine 
+    ? navigator.connection.effectiveType
+    : 'offline';
+  }
+  return connectionType;
 };
 
 const useConnectionEffectiveType = () => {
