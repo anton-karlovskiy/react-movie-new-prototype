@@ -2,14 +2,10 @@
 // inspired by https://github.com/rehooks/network-status
 import { useState, useEffect } from 'react';
 
+const navigatorConnection = navigator.connection;
+
 const getConnectionEffectiveType = () => {
-  let connectionType = null;
-  if (navigator.connection && navigator.connection.effectiveType) {
-    connectionType = navigator.onLine 
-    ? navigator.connection.effectiveType
-    : 'offline';
-  }
-  return connectionType;
+  return navigatorConnection ? navigatorConnection.effectiveType : null;
 };
 
 const useConnectionEffectiveType = () => {
@@ -19,9 +15,9 @@ const useConnectionEffectiveType = () => {
     setConnectionEffectiveType(getConnectionEffectiveType());
   };
   useEffect(() => {
-    navigator.connection && navigator.connection.addEventListener('change', updateCETStatus);
+    navigatorConnection && navigatorConnection.addEventListener('change', updateCETStatus);
     return () => {
-      navigator.connection && navigator.connection.removeEventListener('change', updateCETStatus);
+      navigatorConnection && navigatorConnection.removeEventListener('change', updateCETStatus);
     };
   });
 
