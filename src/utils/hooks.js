@@ -19,7 +19,7 @@ const useConnectionEffectiveType = () => {
     return () => {
       navigatorConnection && navigatorConnection.removeEventListener('change', updateCETStatus);
     };
-  });
+  }, []);
 
   return connectionEffectiveType;
 };
