@@ -9,7 +9,7 @@ const getConnectionEffectiveType = () => {
 };
 
 const useConnectionEffectiveType = () => {
-  let [connectionEffectiveType, setConnectionEffectiveType] = useState(getConnectionEffectiveType());
+  const [connectionEffectiveType, setConnectionEffectiveType] = useState(getConnectionEffectiveType());
 
   const updateCETStatus = () => {
     setConnectionEffectiveType(getConnectionEffectiveType());
